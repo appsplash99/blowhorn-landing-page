@@ -11,7 +11,7 @@ const App: React.FC = () => (
         <p className="my-3 text-4xl sm:text-5xl lg:text-6xl font-bold sm:tracking-tight text-gray-900">
           reactjs-vite-tailwindcss-boilerplate
         </p>
-        <p className="text-xl text-gray-400">Start building for free.</p>
+        <p className="text-xl text-gray-400">Commit from dev branch</p>
       </div>
     </div>
   </div>
