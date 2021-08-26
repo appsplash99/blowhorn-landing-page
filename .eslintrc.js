@@ -15,6 +15,13 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
+  },
   rules: {
     "prettier/prettier": [
       "error",
@@ -29,4 +36,9 @@ module.exports = {
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
   },
+  "import-extensions": [
+    "error",
+    "ignorePackages",
+    { ts: "never", tsx: "never" },
+  ],
 };
