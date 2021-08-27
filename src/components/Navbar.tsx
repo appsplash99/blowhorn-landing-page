@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoIosArrowForward, IoIosArrowDown } from "react-icons/io";
 import { Button } from "./Button";
 
@@ -13,8 +13,8 @@ export const Navbar: React.FC<INavbarProps> = ({
   setshowMobileNav,
 }) => {
   return (
-    <nav className="bg-red-600">
-      <div className="h-16 md:h-28 flex bg-green-400 flex-wrap items-center justify-between p-4">
+    <nav className="bg-red-600 relative">
+      <div className="h-16 md:h-28 flex bg-white flex-wrap items-center justify-between p-4 border-b-2 border-gray-300">
         <div className="flex gap-4 items-center justify-center">
           <div className={`block lg:${!showMobileNav && "hidden"}`}>
             <button
@@ -30,7 +30,7 @@ export const Navbar: React.FC<INavbarProps> = ({
         </div>
         {/* DESKTOP MENU */}
         <div
-          className={`bg-red-300 hidden lg:flex gap-6 items-center justify-center text-xl`}
+          className={`hidden lg:flex gap-6 items-center justify-center text-xl`}
         >
           {children}
         </div>
@@ -45,7 +45,7 @@ export const Navbar: React.FC<INavbarProps> = ({
       </div>
       {/* MOBILE NAV */}
       <div
-        className={`h-12 bg-purple-300 ${
+        className={`absolute w-full h-12 bg-purple-300 ${
           showMobileNav ? "flex" : "hidden"
         } lg:hidden gap-6 items-center justify-center text-xl`}
       >
