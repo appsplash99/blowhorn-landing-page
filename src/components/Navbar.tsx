@@ -13,7 +13,7 @@ export const Navbar: React.FC<INavbarProps> = ({
   setshowMobileNav,
 }) => {
   return (
-    <nav className="bg-red-600 relative">
+    <nav className="absolute w-screen md:px-16">
       <div className="h-1/5 md:h-28 flex bg-white flex-wrap items-center justify-between p-4 border-b-2 border-gray-300">
         <div className="flex gap-4 items-center justify-center">
           <div className={`block lg:${!showMobileNav && "hidden"}`}>
@@ -45,7 +45,7 @@ export const Navbar: React.FC<INavbarProps> = ({
       </div>
       {/* MOBILE NAV */}
       <div
-        className={`absolute w-full h-12 bg-purple-100 ${
+        className={`w-full h-12 bg-purple-100 ${
           showMobileNav ? "flex" : "hidden"
         } lg:hidden gap-6 items-center justify-center text-xl`}
       >
