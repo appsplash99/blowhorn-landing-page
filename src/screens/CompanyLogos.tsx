@@ -10,7 +10,10 @@ export const CompanyLogos = () => {
         </h1>
         <div className="grid items-center justify-center grid-cols-12 gap-y-8">
           {COMPANIES_INFO.map((company, index) => (
-            <div className="flex items-center justify-center col-span-6 sm:col-span-4 md:col-span-3 xl:col-span-2">
+            <div
+              key={index}
+              className="flex items-center justify-center col-span-6 sm:col-span-4 md:col-span-3 xl:col-span-2"
+            >
               <img
                 alt={company.name}
                 src={company.imageSrc}
