@@ -15,7 +15,7 @@ export const DetailedFeaturesCard: React.FC<IDetailedFeaturesCard> = ({
   return (
     <div
       {...props}
-      className="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl"
+      className="flex flex-col items-center justify-between col-span-4 mx-8 md:mx-0 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl"
     >
       <div className="p-3 text-white bg-blue-500 rounded-full">{icon}</div>
       <h4 className="text-xl font-medium text-gray-700">{title}</h4>
