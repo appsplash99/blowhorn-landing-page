@@ -1,6 +1,7 @@
 import React from "react";
 import { AiOutlineTwitter, AiOutlineGithub } from "react-icons/ai";
 import { TEAM } from "../utils/teamDetails";
+import { getRandomBgColor } from "../utils/utilFunctions";
 
 export const Team = () => {
   return (
@@ -25,7 +26,11 @@ export const Team = () => {
                 className="flex flex-col items-center justify-center col-span-1"
               >
                 <div className="relative p-5">
-                  <div className="absolute z-10 w-full h-full -mt-5 -ml-5 rounded-full rounded-tr-none bg-blue-50" />
+                  <div
+                    className={`absolute z-10 w-full h-full -mt-5 -ml-5 rounded-full rounded-tr-none ${getRandomBgColor(
+                      ["bg-blue-50", "bg-green-50", "bg-red-50"]
+                    )}`}
+                  />
                   <img
                     className="relative z-20 w-full rounded-full"
                     src={teamMate.imageSrc}
