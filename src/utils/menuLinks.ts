@@ -1,5 +1,8 @@
+import React from "react";
+import { AiOutlineSearch } from "react-icons/ai";
+
 interface IMenuLinks {
-  [key: string]: string;
+  [key: string]: string | React.ReactNode;
 }
 
 export const MENU_LINKS: IMenuLinks = {
