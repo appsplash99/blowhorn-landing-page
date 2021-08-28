@@ -1,9 +1,9 @@
 import React from "react";
-import { Button } from "../components/Button";
+import { Button } from "../components";
 
 export const Hero = () => {
   return (
-    <div className="h-screen pt-20 pb-32 py-16 sm:py-24 px-4 sm:px-6 md:px-16 lg:px-8 mx-auto max-w-screen-xl flex flex-col items-center justify-center gap-10">
+    <div className="h-screen pt-20 px-4 py-16 sm:px-6 sm:py-24 md:px-16 lg:px-8 mx-auto max-w-screen-xl flex flex-col items-center justify-center gap-10 ">
       <div className="text-center">
         <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-black">
           Start Crafting Your

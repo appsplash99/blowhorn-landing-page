@@ -1,6 +1,5 @@
 import React from "react";
-import { DetailedFeatureRow } from "../components/DetailedFeatureRow";
-import { Section } from "../components/Section";
+import { DetailedFeatureRow, Section } from "../components";
 import multiTaskImage from "../assets/multitask.png";
 import automationImage from "../assets/industry.png";
 

@@ -1,7 +1,6 @@
 import React from "react";
-import { DetailedFeaturesCard } from "../components/DetailedFeaturesCard";
+import { DetailedFeaturesCard, CustomFeatureIcon } from "../components";
 import { FEATURES_LIST } from "../utils/featuresList";
-import { CustomFeatureIcon } from "../components/CustomFeatureIcon";
 
 export const FeaturesCardsAtGlance = () => {
   return (
@@ -17,6 +16,7 @@ export const FeaturesCardsAtGlance = () => {
           {FEATURES_LIST.map((item, idx) => {
             return (
               <DetailedFeaturesCard
+                key={idx}
                 icon={<CustomFeatureIcon iconName={item.icon} />}
                 title={item.title}
                 description={item.description}
