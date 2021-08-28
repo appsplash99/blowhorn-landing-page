@@ -20,7 +20,10 @@ export const Team = () => {
           </h2>
           <div className="grid w-full grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-4">
             {TEAM.map((teamMate, index) => (
-              <div className="flex flex-col items-center justify-center col-span-1">
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center col-span-1"
+              >
                 <div className="relative p-5">
                   <div className="absolute z-10 w-full h-full -mt-5 -ml-5 rounded-full rounded-tr-none bg-blue-50" />
                   <img
@@ -34,8 +37,8 @@ export const Team = () => {
                     <p className="text-blue-600">{teamMate.profession}</p>
                   </div>
                   <div className="relative flex items-center justify-center space-x-3">
-                    <AiOutlineTwitter className="text-gray-300 hover:text-gray-400" />
-                    <AiOutlineGithub className="text-gray-300 hover:text-gray-400" />
+                    <AiOutlineTwitter className="cursor-pointer text-3xl text-gray-300 hover:text-gray-400" />
+                    <AiOutlineGithub className="cursor-pointer text-3xl text-gray-300 hover:text-gray-400" />
                   </div>
                 </div>
               </div>
