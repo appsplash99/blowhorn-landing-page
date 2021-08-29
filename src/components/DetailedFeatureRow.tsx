@@ -1,12 +1,12 @@
 import React from "react";
-import { RiStopCircleFill } from "react-icons/ri";
+import { FaCheckCircle } from "react-icons/fa";
 
 interface IDetailedFeatureRowProps {
   description: string;
   imageAlt: string;
   reverse?: boolean;
   title: string;
-  image: string;
+  imageSrc?: string;
   subBullets?: string[];
 }
 
@@ -14,13 +14,15 @@ export const DetailedFeatureRow: React.FC<IDetailedFeatureRowProps> = ({
   description,
   subBullets,
   imageAlt,
+  imageSrc,
   reverse,
   title,
-  image,
 }) => {
   return (
     <div
-      className={`flex flex-wrap items-center ${reverse && "flex-row-reverse"}`}
+      className={`flex flex-wrap items-center justify-center ${
+        reverse && "flex-row-reverse"
+      }`}
     >
       <div className="w-full sm:w-1/2 text-left sm:px-6">
         <h3 className="text-3xl text-gray-900 font-semibold">{title}</h3>
@@ -30,9 +32,9 @@ export const DetailedFeatureRow: React.FC<IDetailedFeatureRowProps> = ({
         {subBullets && (
           <ul className="mt-7">
             {subBullets.map((bullet, idx) => (
-              <li key={idx}>
+              <li key={idx} className="mt-1">
                 <div className="flex items-center justify-start gap-3">
-                  <RiStopCircleFill className="text-xl text-yellow-400" />
+                  <FaCheckCircle className="text-2xl text-yellow-400" />
                   <p className="text-lg text-gray-400">{bullet}</p>
                 </div>
               </li>
@@ -42,7 +44,11 @@ export const DetailedFeatureRow: React.FC<IDetailedFeatureRowProps> = ({
       </div>
 
       <div className="w-full sm:w-1/2 p-6">
-        <img src={image} alt={imageAlt} />
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          className="p-2 pl-6 pr-5 xl:pl-16 xl:pr-20"
+        />
       </div>
     </div>
   );
