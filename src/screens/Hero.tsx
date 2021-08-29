@@ -1,32 +1,47 @@
-import React from "react";
-import { Button } from "../components";
+import React, { useState } from "react";
+import { Navbar } from "../components";
 
 export const Hero = () => {
+  const [showMobileNav, setshowMobileNav] = useState<boolean>(false);
   return (
-    <div className="h-screen pt-20 px-4 py-16 sm:px-6 sm:py-24 md:px-16 lg:px-8 mx-auto max-w-screen-xl flex flex-col items-center justify-center gap-10 ">
-      <div className="text-center">
-        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-black">
-          Start Crafting Your
-        </h2>
-        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter text-indigo-600">
-          Next Great Idea
-        </h2>
-      </div>
-      <div className="text-center text-sm md:text-xl lg:text-xl w-2/4 md:w-3/6 lg:w-2/6  mx-auto text-gray-400">
-        Simplify the creation of landing Pages, blog Pages, application pages
-        and so much more!
-      </div>
-      <div className="relative flex flex-col items-center justify-center gap-2">
-        <div className="absolute -right-6 md:-right-4 -top-2 md:-top-3 px-1 py-0 md:px-2 md:py-1 rounded-full bg-green-400 text-white text-xs">
-          only $15/mo
+    <>
+      <section id="home" className="w-full px-6 pb-12 antialiased bg-white">
+        <div className="mx-auto max-w-7xl">
+          <Navbar
+            showMobileNav={showMobileNav}
+            setshowMobileNav={setshowMobileNav}
+          />
+          <div className="container max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center">
+            <h1 className="text-5xl font-extrabold leading-10 tracking-tight text-left text-gray-900 md:text-center sm:leading-none md:text-6xl lg:text-7xl">
+              <span className="inline md:block">Start Crafting Your</span>{" "}
+              <span className="relative mt-2 text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-indigo-500 md:inline-block">
+                Next Great Idea
+              </span>
+            </h1>
+            <div className="mx-auto mt-5 text-gray-500 md:mt-12 md:max-w-lg md:text-center lg:text-lg">
+              Simplifying the creation of landing pages, blog pages, application
+              pages and so much more!
+            </div>
+            <div className="flex flex-col items-center mt-12 text-center">
+              <span className="relative inline-flex w-full md:w-auto">
+                <a
+                  href="#_"
+                  type="button"
+                  className="inline-flex items-center justify-center w-full px-8 py-4 text-base font-bold leading-6 text-white bg-indigo-600 border border-transparent rounded-full md:w-auto hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+                >
+                  Purchase Now
+                </a>
+                <span className="absolute top-0 right-0 px-2 py-1 -mt-3 -mr-6 text-xs font-medium leading-tight text-white bg-green-400 rounded-full">
+                  only $15/mo
+                </span>
+              </span>
+              <a href="#" className="mt-3 text-sm text-indigo-500">
+                Learn More
+              </a>
+            </div>
+          </div>
         </div>
-        <Button className="py-2 px-4 md:py-4 md:px-6 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full text-sm md:text-xl">
-          Purchase Now
-        </Button>
-        <Button className="py-2 px-2 bg-white hover:bg-indigo-100 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-indigo-600 transition ease-in duration-200 text-center font-semibold focus:outline-none focus:ring-2 focus:ring-offset-0 rounded-full text-xs md:text-base">
-          Learn More
-        </Button>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
