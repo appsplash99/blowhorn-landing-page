@@ -1,7 +1,8 @@
-import React from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+import React, { useEffect, useState } from "react";
 import { FaBars, FaWindowClose } from "react-icons/fa";
+import { AiOutlineSearch } from "react-icons/ai";
 import { MENU_LINKS } from "../utils/menuLinks";
+import { checkExtensionOfCurrentUrl } from "../utils/utilFunctions";
 
 interface INavbarProps {
   showMobileNav: boolean;
@@ -12,6 +13,15 @@ export const Navbar: React.FC<INavbarProps> = ({
   setshowMobileNav,
   showMobileNav,
 }) => {
+  const [currentUrl, setCurrentUrl] = useState<string>(window.location.href);
+  const [urlChanged, setUrlChanged] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (window.location.href !== currentUrl) {
+      setCurrentUrl(window.location.href);
+    }
+  }, [urlChanged]);
+
   return (
     <nav className={`relative z-50 h-24 select-none`}>
       <div className="container relative flex flex-wrap items-center justify-between h-24 mx-auto overflow-hidden font-medium border-b border-gray-200 md:overflow-visible lg:justify-center sm:px-4 md:px-2">
@@ -19,12 +29,11 @@ export const Navbar: React.FC<INavbarProps> = ({
           <a href="#_" className="inline-block py-4 md:py-0">
             <span className="p-1 text-xl font-black leading-none text-gray-900">
               <span>nullBrains.</span>
-              <span className="text-indigo-600">.</span>
             </span>
           </a>
         </div>
         <div
-          className={`top-0 left-0 right-0 items-start w-full h-full p-4 text-sm bg-gray-900 bg-opacity-50 md:items-center md:w-3/4 md:absolute lg:text-base md:bg-transparent md:p-0 md:relative md:flex transition-all duration-200 ease-in-out transform  ${
+          className={`top-0 left-0 right-0 items-start w-full h-full p-4 text-sm bg-gray-900 bg-opacity-50 md:items-center md:w-3/4 lg:text-base md:bg-transparent md:p-0 md:relative md:flex transition-all duration-200 ease-in-out transform  ${
             showMobileNav ? "flex fixed" : "hidden"
           }`}
         >
@@ -33,19 +42,26 @@ export const Navbar: React.FC<INavbarProps> = ({
           >
             <a
               href="#_"
-              className="inline-flex items-center block w-auto h-16 px-6 text-xl font-black leading-none text-gray-900 md:hidden"
+              className="inline-flex items-center w-auto h-16 px-6 text-xl font-black leading-none text-gray-900 md:hidden"
             >
-              nullBrains.<span className="text-indigo-600">.</span>
+              nullBrains.
             </a>
             <div className="flex flex-col items-start justify-center w-full space-x-6 text-center lg:space-x-8 md:w-2/3 md:mt-0 md:flex-row md:items-center">
-              {Object.keys(MENU_LINKS).map((key, index) => (
+              {MENU_LINKS.map((linkObj, index) => (
                 <a
                   key={index}
-                  href="#_"
-                  onClick={(e) => e.preventDefault()}
-                  className="inline-block w-full py-2 mx-0 ml-6 font-medium text-left text-indigo-600 md:ml-0 md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center"
+                  href={linkObj.href}
+                  onClick={() => {
+                    setUrlChanged((prev) => !prev);
+                    setshowMobileNav(false);
+                  }}
+                  className={`inline-block w-full py-2 mx-0 ml-6 font-medium text-left  md:ml-0 md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center hover:underline ${
+                    checkExtensionOfCurrentUrl(currentUrl) === linkObj.href
+                      ? "text-indigo-600"
+                      : "text-gray-600"
+                  }`}
                 >
-                  {key}
+                  {linkObj.linkName}
                 </a>
               ))}
               <a
@@ -75,7 +91,7 @@ export const Navbar: React.FC<INavbarProps> = ({
           </div>
         </div>
         <div
-          className="absolute right-0 flex flex-col items-center items-end justify-center w-10 h-10 bg-white rounded-full cursor-pointer md:hidden hover:bg-gray-100"
+          className="absolute right-0 flex flex-col items-center justify-center w-10 h-10 bg-white rounded-full cursor-pointer md:hidden hover:bg-gray-100"
           onClick={() => setshowMobileNav(!showMobileNav)}
         >
           {!showMobileNav ? (
