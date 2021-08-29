@@ -4,7 +4,7 @@ import { BLOGS_PRIMARY, BLOGS_SECONDARY } from "../utils/blogs";
 export const Blogs = () => {
   return (
     <>
-      <section className="relative w-full bg-white">
+      <section className="relative w-full bg-white" id="blog">
         <div className="absolute w-full h-32 bg-gradient-to-b from-gray-100 to-white" />
         <div className="relative w-full px-5 py-10 mx-auto sm:py-12 md:py-16 md:px-10 max-w-7xl">
           <h1 className="mb-1 text-4xl font-extrabold leading-none text-gray-900 lg:text-5xl xl:text-6xl sm:mb-3">
