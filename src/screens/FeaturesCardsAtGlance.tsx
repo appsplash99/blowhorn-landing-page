@@ -4,7 +4,7 @@ import { FEATURES_LIST } from "../utils/featuresList";
 
 export const FeaturesCardsAtGlance = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white" id="features">
       <div className="container max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold tracking-tight text-center">
           Our Features
@@ -16,10 +16,10 @@ export const FeaturesCardsAtGlance = () => {
           {FEATURES_LIST.map((item, idx) => {
             return (
               <DetailedFeaturesCard
-                key={idx}
                 icon={<CustomFeatureIcon iconName={item.icon} />}
-                title={item.title}
                 description={item.description}
+                title={item.title}
+                key={idx}
               />
             );
           })}
