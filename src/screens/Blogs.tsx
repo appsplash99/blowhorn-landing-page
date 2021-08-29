@@ -4,7 +4,6 @@ import { BLOGS_PRIMARY, BLOGS_SECONDARY } from "../utils/blogs";
 export const Blogs = () => {
   return (
     <>
-      {/* Section 1 */}
       <section className="relative w-full bg-white">
         <div className="absolute w-full h-32 bg-gradient-to-b from-gray-100 to-white" />
         <div className="relative w-full px-5 py-10 mx-auto sm:py-12 md:py-16 md:px-10 max-w-7xl">
@@ -58,9 +57,12 @@ export const Blogs = () => {
               </div>
             ))}
 
-            <div className="flex grid-cols-12 col-span-12 gap-7">
+            <div className="grid grid-cols-12 col-span-12 gap-7">
               {BLOGS_SECONDARY.map((blogPost, index) => (
-                <div className=" flex flex-col items-start col-span-12 overflow-hidden shadow-sm rounded-xl md:col-span-6 lg:col-span-4">
+                <div
+                  key={index}
+                  className=" flex flex-col items-start col-span-12 overflow-hidden shadow-sm rounded-xl md:col-span-6 lg:col-span-4"
+                >
                   <a
                     href="#_"
                     className="block transition duration-200 ease-out transform hover:scale-110 w-full"
