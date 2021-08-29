@@ -1,13 +1,26 @@
 import React from "react";
-import { AiOutlineSearch } from "react-icons/ai";
 
-interface IMenuLinks {
-  [key: string]: string | React.ReactNode;
+interface IMenuLink {
+  nameAttr: "home" | "features" | "blog" | "contact";
+  linkName: string;
+  href: string;
 }
 
-export const MENU_LINKS: IMenuLinks = {
-  Home: "/",
-  Features: "/features",
-  Blog: "/blog",
-  Contact: "/contact",
-};
+export const MENU_LINKS: IMenuLink[] = [
+  {
+    linkName: "Home",
+    nameAttr: "home",
+    href: "#home",
+  },
+  {
+    linkName: "Features",
+    nameAttr: "features",
+    href: "#features",
+  },
+  {
+    linkName: "Blog",
+    nameAttr: "blog",
+    href: "#blog",
+  },
+  { linkName: "Contact", href: "#contact", nameAttr: "contact" },
+];
