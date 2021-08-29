@@ -5,6 +5,7 @@ interface ISectionProps {
   children: ReactNode;
   title?: string;
   py?: string;
+  id?: string;
 }
 
 export const Section: React.FC<ISectionProps> = ({
@@ -12,9 +13,10 @@ export const Section: React.FC<ISectionProps> = ({
   children,
   title,
   py,
+  id,
 }) => {
   return (
-    <div className={`max-w-screen-lg mx-auto px-3 ${py ? py : "py-8"}`}>
+    <div className={`max-w-screen-lg mx-auto px-3 ${py ? py : "py-8"}`} id={id}>
       {(title || description) && (
         <div className="mb-12 text-center">
           {title && (
